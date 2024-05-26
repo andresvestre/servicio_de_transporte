@@ -36,9 +36,14 @@
     "js/ts.implicitProjectConfig.experimentalDecorators": true,
     "standard.enable": true,
     "standard.run": "onType",
+    "standard.autoFixOnSave": true,
+    "typescript.format.semicolons": "remove",
     "typescript.tsdk": "node_modules/typescript/lib",
     "cSpell.language": "en,es",
-    "cSpell.words": []
+    "cSpell.words": [
+      "ecma",
+      "inversify"
+    ]
   },
   "extensions": {
     "recommendations": [

@@ -1,19 +1,21 @@
 {
-  "name": "servicio-de-tranporte",
+  "name": "servicio-de-transporte",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
+    "start": "npm run build && node ./dist/api/server/main.js",
     "debug": "node --import=tsx --watch ./src/api/server/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --build"
-
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "inversify": "^6.0.2",
+    "inversify-express-utils": "^6.4.6",
+    "reflect-metadata": "^0.2.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.21.0",

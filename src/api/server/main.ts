@@ -1,8 +1,8 @@
-console.log(1503)
+import 'reflect-metadata'
+import TYPES from '../domain/ioc/types'
+import type { IUsersRepository } from '../domain/repository/i-users-repository'
+import { container } from './ioc/container'
+import './ioc/setup'
 
-const nuevo: any = 0;
-
-function algo(s: string) {
-    console.log(s)
-}
-algo("098")
+const userRepository = container.get<IUsersRepository>(TYPES.UsersRepository)
+console.log(userRepository.getUsers())
