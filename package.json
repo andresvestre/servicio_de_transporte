@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node --env-file=./.env./dist/api/server/main.js",
+    "start": "npm run build && node --env-file=./.env ./dist/api/server/main.js",
     "build": "tsc --build",
-    "debug": "node --env-file=./.env --import=tsx --watch./src/api/server/main.ts",
+    "debug": "node --env-file=./.env --import=tsx --watch ./src/api/server/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
