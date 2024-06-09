@@ -1,7 +1,7 @@
-export interface IUsersRepository {
-  getUsers: () => User[]
+export interface IUserRepository {
+  getUsers: () => Promise<User[] | undefined>
 }
-
 export interface User {
   firstName: string
+  lastName: string
 }

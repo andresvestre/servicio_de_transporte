@@ -1,5 +1,4 @@
 const TYPES = {
-  UsersRepository: Symbol.for('UsersRepository')
+  UnitOfWork: Symbol.for('UnitOfWork')
 }
-
 export default TYPES

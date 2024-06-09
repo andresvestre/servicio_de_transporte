@@ -18,11 +18,11 @@ COMMENT ON COLUMN pago.medio_pago.nombre IS 'Nombre del medio de pago, por ejemp
 --Promoción
 
 CREATE TABLE pago.promocion (
-id numeric DEFAULT 0 NOT NULL,
-porcentaje decimal DEFAULT 0 NOT NULL,
-codigo varchar(50) DEFAULT '' NOT NULL,
-esta_disponible boolean DEFAULT false NOT NULL,
-CONSTRAINT pago_promocion_pk PRIMARY KEY (id)
+  id numeric DEFAULT 0 NOT NULL,
+  porcentaje decimal DEFAULT 0 NOT NULL,
+  codigo varchar(50) DEFAULT '' NOT NULL,
+  esta_disponible boolean DEFAULT false NOT NULL,
+  CONSTRAINT promocion_pk PRIMARY KEY (id)
 );
 COMMENT ON TABLE pago.promocion IS 'Almacena la información de las promociones del sistema';
 -- Column comments
@@ -35,20 +35,17 @@ COMMENT ON COLUMN pago.promocion.esta_disponible IS 'Disponible (true), No Dispo
 --Pago
 
 CREATE TABLE pago.pago (
-id numeric DEFAULT 0 NOT NULL,
-viaje_id numeric DEFAULT 0 NOT NULL,
-medio_pago_id numeric DEFAULT 0 NOT NULL,
-promocion_id numeric DEFAULT 0 NOT NULL,
-valor_total decimal DEFAULT 0 NOT NULL,
-comision decimal DEFAULT 0 NOT NULL,
-valor_impuestos decimal DEFAULT 0 NOT NULL,
-CONSTRAINT viaje_pk PRIMARY KEY (id),
-CONSTRAINT pago_viaje_fk FOREIGN KEY (viaje_id) REFERENCES
-transporte.viaje(id),
-CONSTRAINT pago_medio_pago_fk FOREIGN KEY (medio_pago_id) REFERENCES
-pago.medio_pago(id),
-CONSTRAINT pago_promocion_fk FOREIGN KEY (promocion_id) REFERENCES
-pago.promocion(id)
+  id numeric DEFAULT 0 NOT NULL,
+  viaje_id numeric DEFAULT 0 NOT NULL,
+  medio_pago_id numeric DEFAULT 0 NOT NULL,
+  promocion_id numeric DEFAULT 0 NOT NULL,
+  valor_total decimal DEFAULT 0 NOT NULL,
+  comision decimal DEFAULT 0 NOT NULL,
+  valor_impuestos decimal DEFAULT 0 NOT NULL,
+  CONSTRAINT viaje_pk PRIMARY KEY (id),
+  CONSTRAINT pago_viaje_fk FOREIGN KEY (viaje_id) REFERENCES transporte.viaje(id),
+  CONSTRAINT pago_medio_pago_fk FOREIGN KEY (medio_pago_id) REFERENCES pago.medio_pago(id),
+  CONSTRAINT pago_promocion_fk FOREIGN KEY (promocion_id) REFERENCES pago.promocion(id)
 );
 COMMENT ON TABLE pago.pago IS 'Almacena los viajes';
 -- Column comments
@@ -64,13 +61,12 @@ COMMENT ON COLUMN pago.pago.valor_impuestos IS 'Define el valor del impuesto que
 --Referido
 
 CREATE TABLE pago.referido (
-id numeric DEFAULT 0 NOT NULL,
-usuario_id numeric DEFAULT 0 NOT NULL,
-correo varchar(250) DEFAULT '' NOT NULL,
-telefono varchar(30) DEFAULT '' NOT NULL,
-CONSTRAINT referido_pk PRIMARY KEY (id),
-CONSTRAINT referido_usuario_fk FOREIGN KEY (usuario_id) REFERENCES
-seguridad.usuario(id)
+  id numeric DEFAULT 0 NOT NULL,
+  usuario_id numeric DEFAULT 0 NOT NULL,
+  correo varchar(250) DEFAULT '' NOT NULL,
+  telefono varchar(30) DEFAULT '' NOT NULL,
+  CONSTRAINT referido_pk PRIMARY KEY (id),
+  CONSTRAINT referido_usuario_fk FOREIGN KEY (usuario_id) REFERENCES seguridad.usuario(id)
 );
 COMMENT ON TABLE pago.referido IS 'Almacena los referidos de los usuarios';
 
