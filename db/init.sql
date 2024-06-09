@@ -39,7 +39,7 @@ CREATE TABLE seguridad.usuario (
 	id numeric DEFAULT 0 NOT NULL,
 	tipo_identificacion_id numeric DEFAULT 0 NOT NULL,
 	rol_id numeric DEFAULT 0 NOT NULL,
-	identificación varchar(20) DEFAULT '' NOT NULL,
+	identificacion varchar(20) DEFAULT '' NOT NULL,
 	nombre varchar(100) DEFAULT '' NOT NULL,
 	apellido varchar(100) DEFAULT '' NOT NULL,
 	correo varchar(250) DEFAULT '' NOT NULL,
@@ -51,11 +51,11 @@ CREATE TABLE seguridad.usuario (
 
 -- Column comments
 
-COMMENT ON TABLE usuario."usuario" IS 'Almacena la información de los usuarios';
+COMMENT ON TABLE seguridad."usuario" IS 'Almacena la información de los usuarios';
 COMMENT ON COLUMN seguridad.usuario.id IS 'identificador de usuario';
 COMMENT ON COLUMN seguridad.usuario.tipo_identificacion_id IS 'Identificador del tipo de identificacion';
 COMMENT ON COLUMN seguridad.usuario.rol_id IS 'identificador del rol';
-COMMENT ON COLUMN seguridad.usuario.identificador IS 'identificacion de usuario';
+COMMENT ON COLUMN seguridad.usuario.identificacion IS 'identificacion de usuario';
 COMMENT ON COLUMN seguridad.usuario.nombre IS 'Nombre de usuario';
 COMMENT ON COLUMN seguridad.usuario.apellido IS 'Apellido usuario';
 COMMENT ON COLUMN seguridad.usuario.correo IS 'Correo usuario';
@@ -64,19 +64,19 @@ COMMENT ON COLUMN seguridad.usuario."password" IS 'Contraseña usuario';
 --Tipo_de_vehículo
 
 
-CREATE TABLE transporte."tipo_vehículo" (
+CREATE TABLE transporte."tipo_vehiculo" (
 	id numeric DEFAULT 0 NOT NULL,
 	tipo varchar(100) DEFAULT '' NOT NULL,
 	cantidad_de_ejes numeric DEFAULT 0 NOT NULL,
 	CONSTRAINT tipo_de_vehiculo_pk PRIMARY KEY (id)
 );
-COMMENT ON TABLE transporte."tipo_vehículo" IS 'Almacena los tipos de vehículos';
+COMMENT ON TABLE transporte."tipo_vehiculo" IS 'Almacena los tipos de vehículos';
 
 -- Column comments
 
-COMMENT ON COLUMN transporte."tipo_vehículo".id IS 'identificador del tipo del vehículo';
-COMMENT ON COLUMN transporte."tipo_vehículo".tipo IS 'tipo del vehículo ejemplo sedan, camioneta, carga, turismo';
-COMMENT ON COLUMN transporte."tipo_vehículo".cantidad_de_ejes IS 'define la cantidad de ejes del vehículo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".id IS 'identificador del tipo del vehículo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".tipo IS 'tipo del vehículo ejemplo sedan, camioneta, carga, turismo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".cantidad_de_ejes IS 'define la cantidad de ejes del vehículo';
 
 
 --Conductor
@@ -112,7 +112,7 @@ CREATE TABLE transporte.vehiculo (
 	esta_disponible boolean DEFAULT false NOT NULL,
 	CONSTRAINT vehiculo_pk PRIMARY KEY (id),
 	CONSTRAINT vehiculo_conductor_fk FOREIGN KEY (conductor_id) REFERENCES transporte.conductor(id),
-	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehículo_id) REFERENCES transporte.tipo_vehículo(id)
+	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehículo_id) REFERENCES transporte.tipo_vehiculo(id)
 );
 COMMENT ON TABLE transporte.vehiculo IS 'Almacena la información de los vehículos';
 
@@ -297,42 +297,29 @@ COMMENT ON COLUMN soporte.pqrs.tipo IS 'Petición (p), Queja (q), Reclamo (r), S
 COMMENT ON COLUMN soporte.pqrs.estado IS 'Define el nombre estado de la pqrs';
 COMMENT ON COLUMN soporte.pqrs.observaciones IS 'Define la descripción y acciones de la pqrs';
 
-
---Agente
-
-CREATE TABLE soporte.agente (
-id numeric DEFAULT 0 NOT NULL,
-usuario_id numeric DEFAULT 0 NOT NULL,
-alias varchar(100) DEFAULT '' NOT NULL,
-CONSTRAINT agente_pk PRIMARY KEY (id),
-CONSTRAINT agente_usuario_fk FOREIGN KEY (usuario_id) REFERENCES
-seguridad.usuario(id)
-);
-COMMENT ON TABLE soporte.agente IS 'Almacena los agente que brindan soporte';
--- Column comments
-COMMENT ON COLUMN soporte.agente.id IS 'Identificador del agente';
-COMMENT ON COLUMN soporte.agente.usuario_id IS 'Identificador del usuario';
-COMMENT ON COLUMN soporte.agente.alias IS 'Define el nombre que se le presenta a quien recibe soporte por parte del agente';
-
-
---pqrs
-
-CREATE TABLE soporte.pqrs (
-id numeric DEFAULT 0 NOT NULL,
-agente_id numeric DEFAULT 0 NOT NULL,
-tipo varchar(1) DEFAULT '' NOT NULL,
-estado varchar(60) DEFAULT '' NOT NULL,
-observaciones varchar(1000) NOT NULL,
-CONSTRAINT pqrs_pk PRIMARY KEY (id),
-CONSTRAINT pqrs_pqrs_fk FOREIGN KEY (agente_id) REFERENCES
-soporte.pqrs(id)
-);
-COMMENT ON TABLE soporte.pqrs IS 'Almacena las peticiones, quejas, reclamos y sugerencia';
-
--- Column comments
-
-COMMENT ON COLUMN soporte.pqrs.id IS 'identificador de la pqrs';
-COMMENT ON COLUMN soporte.pqrs.agente_id IS 'Identificador del agente que interactúa con la pqrs';
-COMMENT ON COLUMN soporte.pqrs.tipo IS 'Petición (p), Queja (q), Reclamo (r), Sugerencia (s)';
-COMMENT ON COLUMN soporte.pqrs.estado IS 'Define el nombre estado de la pqrs';
-COMMENT ON COLUMN soporte.pqrs.observaciones IS 'Define la descripción y acciones de la pqrs';
+INSERT INTO seguridad.tipo_identificacion VALUES (0, 'No definido');
+INSERT INTO seguridad.tipo_identificacion VALUES (10, 'Cédula de ciudadanía');
+INSERT INTO seguridad.rol VALUES (0, 'No definido');
+INSERT INTO seguridad.rol VALUES (10, 'Administrador');
+INSERT INTO seguridad.rol VALUES (20, 'Solicitante');
+INSERT INTO seguridad.rol VALUES (30, 'Conductor');
+INSERT INTO seguridad.rol VALUES (40, 'Agente');
+INSERT INTO seguridad.usuario VALUES (0, 0, 0, 'No definido', 'No definido', 'No definido', 'No definido', 'No definido');
+INSERT INTO transporte.tipo_vehiculo VALUES (0, 'No definido', 0);
+INSERT INTO transporte.tipo_vehiculo VALUES (10, 'Automóvil', 2);
+INSERT INTO transporte.tipo_vehiculo VALUES (20, 'Campero', 2);
+INSERT INTO transporte.tipo_vehiculo VALUES (30, 'Camioneta', 2);
+INSERT INTO transporte.tipo_vehiculo VALUES (40, 'Microbus', 3);
+INSERT INTO transporte.conductor VALUES (0, 0, 'No definido');
+INSERT INTO transporte.vehiculo VALUES (0, 0, 0, 'No definido', 'No definido', 'No definido', 0, false);
+INSERT INTO transporte.solicitante VALUES (0, 0, 0, 0);
+INSERT INTO transporte.viaje VALUES (0, 0, 0, 0, 0, 0, 0, 0, 'No definido');
+INSERT INTO pago.medio_pago VALUES (0, 'No definido', 'No definido');
+INSERT INTO pago.medio_pago VALUES (10, 'Tarjeta de crédito', 'Visa');
+INSERT INTO pago.medio_pago VALUES (20, 'Tarjeta de crédito', 'MasterCard');
+INSERT INTO pago.medio_pago VALUES (30, 'Efectivo', 'Efectivo');
+INSERT INTO pago.promocion VALUES (0, 0, 'Efectivo', false);
+INSERT INTO pago.pago VALUES (0, 0, 0, 0, 0, 0, 0);
+INSERT INTO pago.referido VALUES (0, 0, 'No definido', 'No definido');
+INSERT INTO soporte.agente VALUES (0, 0, 'No definido');
+INSERT INTO soporte.pqrs VALUES (0, 0, 'N', 'No definido', 'No definido');

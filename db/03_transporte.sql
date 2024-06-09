@@ -1,19 +1,19 @@
 --Tipo_de_vehículo
 
 
-CREATE TABLE transporte."tipo_vehículo" (
+CREATE TABLE transporte."tipo_vehiculo" (
 	id numeric DEFAULT 0 NOT NULL,
 	tipo varchar(100) DEFAULT '' NOT NULL,
 	cantidad_de_ejes numeric DEFAULT 0 NOT NULL,
 	CONSTRAINT tipo_de_vehiculo_pk PRIMARY KEY (id)
 );
-COMMENT ON TABLE transporte."tipo_vehículo" IS 'Almacena los tipos de vehículos';
+COMMENT ON TABLE transporte."tipo_vehiculo" IS 'Almacena los tipos de vehículos';
 
 -- Column comments
 
-COMMENT ON COLUMN transporte."tipo_vehículo".id IS 'identificador del tipo del vehículo';
-COMMENT ON COLUMN transporte."tipo_vehículo".tipo IS 'tipo del vehículo ejemplo sedan, camioneta, carga, turismo';
-COMMENT ON COLUMN transporte."tipo_vehículo".cantidad_de_ejes IS 'define la cantidad de ejes del vehículo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".id IS 'identificador del tipo del vehículo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".tipo IS 'tipo del vehículo ejemplo sedan, camioneta, carga, turismo';
+COMMENT ON COLUMN transporte."tipo_vehiculo".cantidad_de_ejes IS 'define la cantidad de ejes del vehículo';
 
 
 --Conductor
@@ -49,7 +49,7 @@ CREATE TABLE transporte.vehiculo (
 	esta_disponible boolean DEFAULT false NOT NULL,
 	CONSTRAINT vehiculo_pk PRIMARY KEY (id),
 	CONSTRAINT vehiculo_conductor_fk FOREIGN KEY (conductor_id) REFERENCES transporte.conductor(id),
-	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehículo_id) REFERENCES transporte.tipo_vehículo(id)
+	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehículo_id) REFERENCES transporte.tipo_vehiculo(id)
 );
 COMMENT ON TABLE transporte.vehiculo IS 'Almacena la información de los vehículos';
 
