@@ -1,6 +1,7 @@
 import type { IContextTransport, ParametersDB } from 'infrastructure/db/iContextTransport'
 import { injectable } from 'inversify'
 import { Sequelize } from 'sequelize'
+import { adaptArrayDataBaseToDomain, adaptDomainToDataBase } from './adapterUtils'
 
 if (process.env.DB_NAME == null || process.env.DB_USER == null) {
   throw new Error('Error init db')
@@ -28,12 +29,14 @@ export class ContextTransport implements IContextTransport {
   }
 
   async executeQuery<TEntity>(query: string, parameters?: ParametersDB | undefined): Promise<TEntity[] | undefined> {
+    const newParameters = adaptDomainToDataBase(parameters)
+
     await this.connect()
     const result = await this.db.query(query, {
-      replacements: parameters
+      replacements: newParameters
     })
     if (((result?.length) === 2)) {
-      return result[0] as TEntity[]
+      return adaptArrayDataBaseToDomain(result[0]) as TEntity[]
     }
   }
 
