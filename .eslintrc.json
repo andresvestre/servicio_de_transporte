@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es2021": true,
         "node": true
     },
@@ -10,5 +11,8 @@
     },
     "rules": {
         "@typescript-eslint/space-before-function-paren": "off"
-    }
+    },
+    "ignores": [
+        "src/app/**/*.js"
+    ]
 }
