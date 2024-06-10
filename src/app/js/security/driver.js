@@ -11,7 +11,7 @@ async function register () {
   const responseMessage = await sendMessage(requestMessage)
 
   sessionStorage.setItem('user', JSON.stringify(responseMessage))
-  location.href = '/view/private/home.html'
+  location.href = '/view/private/driver.html'
 }
 
 function captureFields () {
@@ -27,7 +27,7 @@ function captureFields () {
 }
 
 async function sendMessage (requestMessage) {
-  const responseMessage = await fetch('/api/v1/transport/driver', {
+  const responseMessage = await fetch('/api/v1/security/driver', {
     headers: { 'content-type': 'application/json' },
     method: 'post',
     body: JSON.stringify(requestMessage)

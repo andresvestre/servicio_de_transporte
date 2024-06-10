@@ -11,7 +11,23 @@ async function login () {
   const responseMessage = await sendMessage(requestMessage)
 
   sessionStorage.setItem('user', JSON.stringify(responseMessage))
-  location.href = '/view/private/home.html'
+
+  let view = '';
+  switch (responseMessage.rolId) {
+    case 10:
+      view = 'admin'
+    case 20:
+      view = 'solicitante'
+      break
+    case 30:
+      view = 'driver'
+      break
+    case 40:
+      view = 'agent'
+      break
+  }
+
+  location.href = `/view/private/${view}.html`
 }
 
 function captureFields () {

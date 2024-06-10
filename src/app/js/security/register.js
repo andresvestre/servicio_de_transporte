@@ -11,7 +11,7 @@ async function register () {
   const responseMessage = await sendMessage(requestMessage)
 
   sessionStorage.setItem('user', JSON.stringify(responseMessage))
-  location.href = '/view/private/home.html'
+  location.href = '/view/private/solicitante.html'
 }
 
 function captureFields () {
