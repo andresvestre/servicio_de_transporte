@@ -35,6 +35,7 @@ function getNewKeyDatabase(propertyName: string): string {
   for (const char of propertyName) {
     if (isToUpperCase(char)) {
       newProperty += CHAR_UNDERSCORE
+      newProperty += char.toLowerCase()
     } else {
       newProperty += char
     }

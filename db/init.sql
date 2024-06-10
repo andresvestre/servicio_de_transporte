@@ -324,3 +324,14 @@ INSERT INTO pago.pago VALUES (0, 0, 0, 0, 0, 0, 0);
 INSERT INTO pago.referido VALUES (0, 0, 'No definido', 'No definido');
 INSERT INTO soporte.agente VALUES (0, 0, 'No definido');
 INSERT INTO soporte.pqrs VALUES (0, 0, 'N', 'No definido', 'No definido');
+
+CREATE SEQUENCE sq_usuario START 20;
+CREATE SEQUENCE sq_vehiculo START 10;
+CREATE SEQUENCE sq_conductor START 10;
+CREATE SEQUENCE sq_viaje START 10;
+CREATE SEQUENCE sq_pago START 10;
+CREATE SEQUENCE sq_solicitante START 10;
+CREATE SEQUENCE sq_promocion START 10;
+CREATE SEQUENCE sq_agente START 10;
+CREATE SEQUENCE sq_pqrs START 10;
+CREATE SEQUENCE sq_referido START 10;

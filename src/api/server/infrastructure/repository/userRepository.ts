@@ -15,6 +15,7 @@ export class UserRepository implements IUserRepository {
    ,correo
    ,password
  `
+
   async login(username: string, password: string): Promise<User | undefined> {
     return await this.context.executeQueryScalar<User>(`
      SELECT
@@ -31,31 +32,19 @@ export class UserRepository implements IUserRepository {
 
   async register(user: User): Promise<User | undefined> {
     return await this.context.executeQueryScalar<User>(`
-      INSERT INTO seguridad.usuario (
-        ${this.COLUMNS_ENTITY}
-      ) VALUES (
-         nextval('sq_usuario')
-        ,:tipo_identificacion_id
-        ,:rol_id
-        ,:identificacion
-        ,:nombre
-        ,:apellido
-        ,:correo
-        ,:password
-      )
-    `, user as object as Record<string, unknown>)
-  }
-
-  async getUserByEmail(username: string): Promise<User | undefined> {
-    return await this.context.executeQueryScalar<User>(`
-      SELECT
-        ${this.COLUMNS_ENTITY}
-      FROM seguridad.usuario
-      WHERE
-        correo = :username
-    `, {
-      username
-    })
+     INSERT INTO seguridad.usuario (
+       ${this.COLUMNS_ENTITY}
+     ) VALUES (
+        nextval('sq_usuario')
+       ,:tipo_identificacion_id
+       ,:rol_id
+       ,:identificacion
+       ,:nombre
+       ,:apellido
+       ,:correo
+       ,:password
+     )
+   `, user as object as Record<string, unknown>)
   }
 
   async getUsers(): Promise<User[] | undefined> {
