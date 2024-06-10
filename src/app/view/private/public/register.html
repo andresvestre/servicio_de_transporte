@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STE :: Nuevo Registro</title>
+</head>
+
+<body>
+  <header>
+    <h1>STE</h1>
+    <h5>Servicio de Transporte Especializado</h5>
+  </header>
+
+  <section>
+    <h4>Registro de Usuarios</h4>
+    <article>
+      <form id="frmRegister" autocomplete="off">
+        <div>
+          <label for="sltTipoIdentificacionId">Seleccione el Tipo de Documento</label>
+          <select id="sltTipoIdentificacionId" type="text" required autocomplete="off">
+            <option value="10">Cédula de ciudadanía</option>
+          </select>
+        </div>
+        <div>
+          <label for="iptIdentificacion">Ingrese su número de Identificación</label>
+          <input id="iptIdentificacion" type="number" required autocomplete="off" />
+        </div>
+        <div>
+          <label for="iptNombre">Ingrese Nombres</label>
+          <input id="iptNombre" type="text" required autocomplete="off" />
+        </div>
+        <div>
+          <label for="iptApellido">Ingrese Apellidos</label>
+          <input id="iptApellido" type="text" required autocomplete="off" />
+        </div>
+        <div>
+          <label for="iptUsername">Ingrese Correo</label>
+          <input id="iptUsername" type="text" required autocomplete="off" />
+        </div>
+        <div>
+          <label for="iptPassword">Ingrese Contraseña</label>
+          <input id="iptPassword" type="password" required autocomplete="off" />
+        </div>
+
+        <div>
+          <a href="/">Atrás</a>
+          <button id="btnGuardar">Guardar</button>
+        </div>
+      </form>
+    </article>
+  </section>
+
+  <script async src="/js/security/register.js"></script>
+</body>
+
+</html>
