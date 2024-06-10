@@ -1,3 +1,4 @@
+import { Conductor } from 'domain/entities/conductor'
 import { Solicitante } from 'domain/entities/solicitante'
 import { User } from 'domain/entities/user'
 import type { IUserRepository } from 'domain/repository/iUserRepository'
@@ -84,6 +85,22 @@ export class UserRepository implements IUserRepository {
     `, solicitante as object as Record<string, unknown>)
 
     return solicitante
+  }
+
+  async saveConductor(conductor: Conductor): Promise<Conductor | undefined> {
+    await this.context.executeQuery<Solicitante>(`
+      INSERT INTO transporte.conductor (
+         id
+        ,usuario_id
+        ,numero_licencia
+      ) VALUES (
+         nextval('sq_conductor')
+        ,:usuario_id
+        ,:numero_licencia
+      )
+    `, conductor as object as Record<string, unknown>)
+
+    return conductor
   }
 
   async getUsers(): Promise<User[] | undefined> {

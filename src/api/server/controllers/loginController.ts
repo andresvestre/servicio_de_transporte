@@ -1,4 +1,5 @@
 import TYPES from 'application/ioc/types'
+import { DriverRequest } from 'application/message/security/driverRequest'
 import { UserRequest } from 'application/message/security/userRequest'
 import { UserResponse } from 'application/message/security/userResponse'
 import { ISecurity } from 'application/useCase/iSecurity'
@@ -24,5 +25,12 @@ export class LoginController implements interfaces.Controller {
     const userRequest = Object.assign({}, req.body) as UserRequest
 
     return await this.security.userRegister(userRequest)
+  }
+
+  @httpPost('/driver')
+  async driverRegister(@request() req: express.Request): Promise<UserResponse | undefined> {
+    const driverRequest = Object.assign({}, req.body) as DriverRequest
+
+    return await this.security.driverRegister(driverRequest)
   }
 }
