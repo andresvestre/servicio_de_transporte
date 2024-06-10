@@ -36,12 +36,53 @@
       <div>
         <div>
           <div>Guía rápida de aprendizaje</div>
-          <div>Formulario de registro</div>
+          <div>
+            <div>
+              <article>
+                <header>Tu vehículo</header>
+                <div>
+                  <form id="frmVehiculo">
+                    <div>
+                      <label for="sltTipoVehiculoId">Seleccione el Tipo de Vehículo</label>
+                      <select id="sltTipoVehiculoId" type="text" required autocomplete="off">
+                        <option value="10">Automóvil</option>
+                        <option value="20">Campero</option>
+                        <option value="30">Camioneta</option>
+                        <option value="40">Microbus</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="iptPlaca">Ingrese la Placa</label>
+                      <input id="iptPlaca" type="text" required autocomplete="off" />
+                    </div>
+                    <div>
+                      <label for="iptColor">Seleccione el color del carro</label>
+                      <input id="iptColor" type="color" required autocomplete="off" />
+                    </div>
+                    <div>
+                      <label for="iptModelo">Ingrese el Modelo</label>
+                      <input id="iptModelo" type="number" required autocomplete="off" />
+                    </div>
+                    <div>
+                      <label for="iptAsientos">Ingrese la cantidad de asientos</label>
+                      <input id="iptAsientos" type="number" required autocomplete="off" />
+                    </div>
+
+                    <div>
+                      <button id="btnGuardar">Guardar</button>
+                    </div>
+                  </form>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
         <button>+ Estar Disponible</button>
       </div>
     </article>
   </div>
+
+  <script async src="/js/security/driver.js"></script>
 </body>
 
 </html>
