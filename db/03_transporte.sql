@@ -2,9 +2,9 @@
 
 
 CREATE TABLE transporte."tipo_vehiculo" (
-	id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
 	tipo varchar(100) DEFAULT '' NOT NULL,
-	cantidad_de_ejes numeric DEFAULT 0 NOT NULL,
+	cantidad_de_ejes integer DEFAULT 0 NOT NULL,
 	CONSTRAINT tipo_de_vehiculo_pk PRIMARY KEY (id)
 );
 COMMENT ON TABLE transporte."tipo_vehiculo" IS 'Almacena los tipos de vehículos';
@@ -20,8 +20,8 @@ COMMENT ON COLUMN transporte."tipo_vehiculo".cantidad_de_ejes IS 'define la cant
 
 
 CREATE TABLE transporte.conductor (
-	id numeric DEFAULT 0 NOT NULL,
-	usuario_id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
+	usuario_id integer DEFAULT 0 NOT NULL,
 	numero_licencia varchar(200) DEFAULT '' NOT NULL,
 	CONSTRAINT conductor_pk PRIMARY KEY (id),
 	CONSTRAINT conductor_usuario_fk FOREIGN KEY (usuario_id) REFERENCES seguridad.usuario(id)
@@ -39,13 +39,13 @@ COMMENT ON COLUMN transporte.conductor.numero_licencia IS 'numero de licencia de
 
 
 CREATE TABLE transporte.vehiculo (
-	id numeric DEFAULT 0 NOT NULL,
-	conductor_id numeric DEFAULT 0 NOT NULL,
-	tipo_vehículo_id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
+	conductor_id integer DEFAULT 0 NOT NULL,
+	tipo_vehículo_id integer DEFAULT 0 NOT NULL,
 	placa varchar(20) DEFAULT '' NOT NULL,
 	color varchar(20) DEFAULT '' NOT NULL,
 	modelo varchar(20) DEFAULT '' NOT NULL,
-	asientos numeric DEFAULT 0 NOT NULL,
+	asientos integer DEFAULT 0 NOT NULL,
 	esta_disponible boolean DEFAULT false NOT NULL,
 	CONSTRAINT vehiculo_pk PRIMARY KEY (id),
 	CONSTRAINT vehiculo_conductor_fk FOREIGN KEY (conductor_id) REFERENCES transporte.conductor(id),
@@ -68,10 +68,10 @@ COMMENT ON COLUMN transporte.vehiculo.esta_disponible IS 'disponible (1), no dis
 -- Solicitante
 
 CREATE TABLE transporte.solicitante (
-	id numeric DEFAULT 0 NOT NULL,
-	usuario_id numeric DEFAULT 0 NULL,
-	latitud_defecto numeric DEFAULT 0 NOT NULL,
-	longitud_defecto numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
+	usuario_id integer DEFAULT 0 NULL,
+	latitud_defecto integer DEFAULT 0 NOT NULL,
+	longitud_defecto integer DEFAULT 0 NOT NULL,
 	CONSTRAINT solicitante_pk PRIMARY KEY (id),
 	CONSTRAINT solicitante_usuario_fk FOREIGN KEY (usuario_id) REFERENCES seguridad.usuario(id)
 );
@@ -88,14 +88,14 @@ COMMENT ON COLUMN transporte.solicitante.longitud_defecto IS 'Define coordenada 
 --Viaje
 
 CREATE TABLE transporte.viaje (
-	id numeric DEFAULT 0 NOT NULL,
-	solicitante_id numeric DEFAULT 0 NOT NULL,
-	vehiculo_id numeric DEFAULT 0 NOT NULL,
-	partida_latitud numeric DEFAULT 0 NOT NULL,
-	partida_longitud numeric DEFAULT 0 NOT NULL,
-	destino_latitud numeric DEFAULT 0 NOT NULL,
-	destino_longitud numeric DEFAULT 0 NOT NULL,
-	calificacion numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
+	solicitante_id integer DEFAULT 0 NOT NULL,
+	vehiculo_id integer DEFAULT 0 NOT NULL,
+	partida_latitud integer DEFAULT 0 NOT NULL,
+	partida_longitud integer DEFAULT 0 NOT NULL,
+	destino_latitud integer DEFAULT 0 NOT NULL,
+	destino_longitud integer DEFAULT 0 NOT NULL,
+	calificacion integer DEFAULT 0 NOT NULL,
 	observaciones varchar(1000) DEFAULT '' NOT NULL,
 	CONSTRAINT viaje_pk PRIMARY KEY (id),
 	CONSTRAINT viaje_solicitante_fk FOREIGN KEY (solicitante_id) REFERENCES transporte.solicitante(id),

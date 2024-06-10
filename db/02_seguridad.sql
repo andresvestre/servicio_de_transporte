@@ -1,7 +1,7 @@
 -- Tipo de Identificación
 
 CREATE TABLE "seguridad".tipo_identificacion (
-	id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
 	nombre varchar(40) DEFAULT '' NOT NULL,
 	CONSTRAINT tipoIdentificacion_pk PRIMARY KEY (id)
 );
@@ -16,7 +16,7 @@ COMMENT ON COLUMN "seguridad".tipo_identificacion.nombre IS 'Nombre del tipo de 
 --Rol
 
 CREATE TABLE seguridad.rol (
-	id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
 	nombre varchar(100) DEFAULT '' NOT NULL,
 	CONSTRAINT rol_pk PRIMARY KEY (id)
 );
@@ -31,9 +31,9 @@ COMMENT ON COLUMN seguridad.rol.nombre IS 'Nombre del rol';
 --Usuario
 
 CREATE TABLE seguridad.usuario (
-	id numeric DEFAULT 0 NOT NULL,
-	tipo_identificacion_id numeric DEFAULT 0 NOT NULL,
-	rol_id numeric DEFAULT 0 NOT NULL,
+	id integer DEFAULT 0 NOT NULL,
+	tipo_identificacion_id integer DEFAULT 0 NOT NULL,
+	rol_id integer DEFAULT 0 NOT NULL,
 	identificación varchar(20) DEFAULT '' NOT NULL,
 	nombre varchar(100) DEFAULT '' NOT NULL,
 	apellido varchar(100) DEFAULT '' NOT NULL,

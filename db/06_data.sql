@@ -6,6 +6,7 @@ INSERT INTO seguridad.rol VALUES (20, 'Solicitante');
 INSERT INTO seguridad.rol VALUES (30, 'Conductor');
 INSERT INTO seguridad.rol VALUES (40, 'Agente');
 INSERT INTO seguridad.usuario VALUES (0, 0, 0, 'No definido', 'No definido', 'No definido', 'No definido', 'No definido');
+INSERT INTO seguridad.usuario VALUES (10, 10, 10, 'Ident Admin', 'Nombre Admin', 'Apellido Admin', 'admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 INSERT INTO transporte.tipo_vehiculo VALUES (0, 'No definido', 0);
 INSERT INTO transporte.tipo_vehiculo VALUES (10, 'Automóvil', 2);
 INSERT INTO transporte.tipo_vehiculo VALUES (20, 'Campero', 2);

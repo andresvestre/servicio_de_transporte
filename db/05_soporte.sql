@@ -1,8 +1,8 @@
 --Agente
 
 CREATE TABLE soporte.agente (
-id numeric DEFAULT 0 NOT NULL,
-usuario_id numeric DEFAULT 0 NOT NULL,
+id integer DEFAULT 0 NOT NULL,
+usuario_id integer DEFAULT 0 NOT NULL,
 alias varchar(100) DEFAULT '' NOT NULL,
 CONSTRAINT agente_pk PRIMARY KEY (id),
 CONSTRAINT agente_usuario_fk FOREIGN KEY (usuario_id) REFERENCES
@@ -18,8 +18,8 @@ COMMENT ON COLUMN soporte.agente.alias IS 'Define el nombre que se le presenta a
 --pqrs
 
 CREATE TABLE soporte.pqrs (
-id numeric DEFAULT 0 NOT NULL,
-agente_id numeric DEFAULT 0 NOT NULL,
+id integer DEFAULT 0 NOT NULL,
+agente_id integer DEFAULT 0 NOT NULL,
 tipo varchar(1) DEFAULT '' NOT NULL,
 estado varchar(60) DEFAULT '' NOT NULL,
 observaciones varchar(1000) NOT NULL,

@@ -1,12 +1,22 @@
-import applicationTypes from 'application/ioc/types'
-import type { ISecurity } from 'application/useCases/iSecurity'
 import 'reflect-metadata'
+
+// App
+import type { Application } from 'express'
+import { InversifyExpressServer } from 'inversify-express-utils'
+import { serverConfig } from './config/serverConfig'
 import { container } from './ioc/container'
 import './ioc/setup'
 
-testConnectionDb().catch(console.log)
+main().catch(console.log)
 
-async function testConnectionDb(): Promise<void> {
-  const security = container.get<ISecurity>(applicationTypes.Security)
-  console.log(await security.login('admin', 'admin'))
+async function main(): Promise<void> {
+  const server = new InversifyExpressServer(container)
+  server.setConfig((app: Application) => {
+    serverConfig(app).catch(console.log)
+  })
+
+  const app = server.build()
+  app.listen(8080, () => {
+    console.info('Server up on http://127.0.0.1:8080/')
+  })
 }
