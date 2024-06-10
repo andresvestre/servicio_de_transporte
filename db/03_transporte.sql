@@ -41,15 +41,17 @@ COMMENT ON COLUMN transporte.conductor.numero_licencia IS 'numero de licencia de
 CREATE TABLE transporte.vehiculo (
 	id integer DEFAULT 0 NOT NULL,
 	conductor_id integer DEFAULT 0 NOT NULL,
-	tipo_vehículo_id integer DEFAULT 0 NOT NULL,
+	tipo_vehiculo_id integer DEFAULT 0 NOT NULL,
 	placa varchar(20) DEFAULT '' NOT NULL,
 	color varchar(20) DEFAULT '' NOT NULL,
 	modelo varchar(20) DEFAULT '' NOT NULL,
 	asientos integer DEFAULT 0 NOT NULL,
+	latitud integer DEFAULT 0 NOT NULL,
+	longitud integer DEFAULT 0 NOT NULL,
 	esta_disponible boolean DEFAULT false NOT NULL,
 	CONSTRAINT vehiculo_pk PRIMARY KEY (id),
 	CONSTRAINT vehiculo_conductor_fk FOREIGN KEY (conductor_id) REFERENCES transporte.conductor(id),
-	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehículo_id) REFERENCES transporte.tipo_vehiculo(id)
+	CONSTRAINT vehiculo_tipo_vehículo_fk FOREIGN KEY (tipo_vehiculo_id) REFERENCES transporte.tipo_vehiculo(id)
 );
 COMMENT ON TABLE transporte.vehiculo IS 'Almacena la información de los vehículos';
 
@@ -57,11 +59,13 @@ COMMENT ON TABLE transporte.vehiculo IS 'Almacena la información de los vehícu
 
 COMMENT ON COLUMN transporte.vehiculo.id IS 'identificador del tipo de vehículo';
 COMMENT ON COLUMN transporte.vehiculo.conductor_id IS 'Identificación del conductor';
-COMMENT ON COLUMN transporte.vehiculo.tipo_vehículo_id IS 'identificador del tipo del vehículo';
+COMMENT ON COLUMN transporte.vehiculo.tipo_vehiculo_id IS 'identificador del tipo del vehículo';
 COMMENT ON COLUMN transporte.vehiculo.placa IS 'placa registrada del vehículo';
 COMMENT ON COLUMN transporte.vehiculo.color IS 'Color del vehículo';
 COMMENT ON COLUMN transporte.vehiculo.modelo IS 'modelo del vehículo';
 COMMENT ON COLUMN transporte.vehiculo.asientos IS 'Cantidad de asientos del vehiculo';
+COMMENT ON COLUMN transporte.vehiculo.latitud IS 'Define la coordenada latitud del vehículo';
+COMMENT ON COLUMN transporte.vehiculo.longitud IS 'Define la coordenada longitud del vehículo';
 COMMENT ON COLUMN transporte.vehiculo.esta_disponible IS 'disponible (1), no disponible (0)';
 
 
@@ -114,5 +118,3 @@ COMMENT ON COLUMN transporte.viaje.destino_latitud IS 'Define la coordenada geog
 COMMENT ON COLUMN transporte.viaje.destino_longitud IS 'Define la coordenada geográfica (longitud) del destino del viaje';
 COMMENT ON COLUMN transporte.viaje.calificacion IS 'Define la calificación que le da el solicitante al viaje';
 COMMENT ON COLUMN transporte.viaje.observaciones IS 'Especifica las observaciones que el usuario tiene del viaje';
-
-

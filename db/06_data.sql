@@ -13,7 +13,7 @@ INSERT INTO transporte.tipo_vehiculo VALUES (20, 'Campero', 2);
 INSERT INTO transporte.tipo_vehiculo VALUES (30, 'Camioneta', 2);
 INSERT INTO transporte.tipo_vehiculo VALUES (40, 'Microbus', 3);
 INSERT INTO transporte.conductor VALUES (0, 0, 'No definido');
-INSERT INTO transporte.vehiculo VALUES (0, 0, 0, 'No definido', 'No definido', 'No definido', 0, false);
+INSERT INTO transporte.vehiculo VALUES (0, 0, 0, 'No definido', 'No definido', 'No definido', 0, 0, 0, false);
 INSERT INTO transporte.solicitante VALUES (0, 0, 0, 0);
 INSERT INTO transporte.viaje VALUES (0, 0, 0, 0, 0, 0, 0, 0, 'No definido');
 INSERT INTO pago.medio_pago VALUES (0, 'No definido', 'No definido');
