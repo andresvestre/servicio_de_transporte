@@ -1,4 +1,5 @@
-import type { User } from 'domain/entities/user'
+import { Solicitante } from 'domain/entities/solicitante'
+import { User } from 'domain/entities/user'
 import type { IUserRepository } from 'domain/repository/iUserRepository'
 import type { IContextTransport } from 'infrastructure/db/iContextTransport'
 
@@ -34,7 +35,7 @@ export class UserRepository implements IUserRepository {
       INSERT INTO seguridad.usuario (
         ${this.COLUMNS_ENTITY}
       ) VALUES (
-         nextval('sq_usuario')
+         :id
         ,:tipo_identificacion_id
         ,:rol_id
         ,:identificacion
@@ -56,6 +57,33 @@ export class UserRepository implements IUserRepository {
     `, {
       username
     })
+  }
+
+
+  async getUserSequence(): Promise<number | undefined> {
+    const sequence = await this.context.executeQueryScalar<{ id: number }>(`
+      SELECT nextval('sq_usuario') AS id
+    `)
+
+    return sequence?.id
+  }
+
+  async saveSolicitante(solicitante: Solicitante): Promise<Solicitante | undefined> {
+    await this.context.executeQuery<Solicitante>(`
+      INSERT INTO transporte.solicitante (
+         id
+        ,usuario_id
+        ,latitud_defecto
+        ,longitud_defecto
+      ) VALUES (
+         nextval('sq_solicitante')
+        ,:usuario_id
+        ,:latitud_defecto
+        ,:longitud_defecto
+      )
+    `, solicitante as object as Record<string, unknown>)
+
+    return solicitante
   }
 
   async getUsers(): Promise<User[] | undefined> {

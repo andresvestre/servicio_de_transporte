@@ -3,6 +3,7 @@ import { UserRequest } from 'application/message/security/userRequest'
 import { UserResponse } from 'application/message/security/userResponse'
 import { IUnitOfWork } from 'domain/db/iUnitOfWork'
 import { Rol } from 'domain/entities/rol'
+import { Solicitante } from 'domain/entities/solicitante'
 import { User } from 'domain/entities/user'
 import TYPES from 'domain/ioc/types'
 import { inject, injectable } from 'inversify'
@@ -29,6 +30,10 @@ export class Security implements ISecurity {
       throw Error('¡Usuario ya existe!')
     }
 
+    const sequenceId = await this.unitOfWork.userRepository.getUserSequence()
+    if (sequenceId) {
+      domainUser.id = sequenceId
+    }
     domainUser.tipoIdentificacionId = parseInt(userRequest.tipoIdentificacionId)
     domainUser.rolId = Rol.Solicitante.id
     domainUser.identificacion = userRequest.identificacion
@@ -39,8 +44,16 @@ export class Security implements ISecurity {
 
     await this.unitOfWork.userRepository.register(domainUser)
 
+    const solicitante = new Solicitante()
+    solicitante.usuarioId = domainUser.id
+    solicitante.latitudDefecto = 0
+    solicitante.longitudDefecto = 0
+
+    await this.unitOfWork.userRepository.saveSolicitante(solicitante)
+
     return adaptEntityDomainToView<UserResponse>(domainUser, UserResponse)
   }
+
 
   private encryptString(text: string): string {
     return createHash('sha256').update(text).digest('hex')
