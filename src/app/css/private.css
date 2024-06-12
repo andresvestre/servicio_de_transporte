@@ -139,3 +139,11 @@ body,
 .btn-end {
   margin: auto auto 20px 16px;
 }
+
+.search-vehicle {
+  width: 90%;
+}
+
+#map {
+  height: 90%;
+}

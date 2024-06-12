@@ -75,6 +75,15 @@
       <div class="wrapper-page">
         <div>¿A dónde quieres ir?</div>
 
+        <form class="form w80" id="frmSearchVehicle">
+          <div class="form-field search-vehicle">
+            <input class="form-control" id="iptSearchVehicle" type="text" required autocomplete="off" />
+            <label class="form-label" for="iptSearchVehicle">Búsqueda de servicio</label>
+          </div>
+        </form>
+
+        <div id="map"></div>
+
         <button class="form-button form-button--green btn-enable-car">
           <span class="material-symbols-outlined">car_tag</span>
           Solicitar Servicio
@@ -82,6 +91,11 @@
       </div>
     </div>
   </div>
+
+  <script src="/js/transport/solicitante.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&loading=async&callback=initAutocomplete&libraries=places&v=weekly"
+    defer></script>
 </body>
 
 </html>
