@@ -1,0 +1,301 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+  v2.0 | 20110126
+  License: none (public domain)
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  background: radial-gradient(177.27% 126.67% at 50.54% 42.71%, rgba(240, 241, 245, 0.00) 0.77%, #D9DCE1 71.3%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: #293342;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  min-height: 100%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+}
+
+.form-field {
+  align-items: end;
+  background-color: #fff;
+  border-bottom: 1px solid #1D1B20;
+  border-radius: 4px 4px 0px 0px;
+  display: flex;
+  font-family: Roboto;
+  height: 56px;
+  letter-spacing: 0.5px;
+  margin-bottom: 32px;
+  position: relative;
+  transform: translateZ(0);
+  width: 310px;
+}
+
+.form-control {
+  border: 0;
+  font-family: Roboto;
+  font-size: 16px;
+  height: 24px;
+  margin: 8px 16px;
+  outline: none;
+  letter-spacing: 0.5px;
+  padding: 0;
+  width: 100%;
+  transform: translateY(1px);
+}
+
+.form-label {
+  align-items: flex-start;
+  color: var(--bg-4);
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  font-size: 16px;
+  height: 40px;
+  letter-spacing: 0.5px;
+  justify-content: center;
+  padding: 8px 16px;
+  position: absolute;
+  transform: translateY(-7px);
+  transition: all .25s cubic-bezier(.4, 0, .2, 1);
+}
+
+.form-control:focus~.form-label,
+.form-control:valid~.form-label {
+  font-size: 12px;
+  transform: translateY(-20px);
+}
+
+.form-div {
+  border: 0;
+  margin: 0;
+  border-bottom-width: 1px;
+  border-style: solid;
+  bottom: 0;
+  height: 0;
+  margin: 0;
+  max-height: 1px;
+  position: absolute;
+  transition: all .25s cubic-bezier(.4, 0, .2, 1);
+  width: 0;
+}
+
+.form-control:focus~.form-div,
+.form-control:valid~.form-div {
+  width: 100%;
+}
+
+.form-button {
+  align-items: center;
+  flex-flow: wrap;
+  align-self: stretch;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex: 1 0 0;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  gap: 8px;
+  height: 40px;
+  justify-content: center;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  max-height: 40px;
+  max-width: 130px;
+  padding: 10px 24px 10px 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.form-button--submit {
+  background: #293342;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  color: #fff;
+}
+
+.form-button--back {
+  background: #F7F2FA;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  color: #293342;
+  text-decoration: none;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 32px;
+  width: 420px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+
+
+.form-sub-actions {
+  align-content: center;
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 32px;
+}
+
+.form-button--green {
+  background: #5cb85c;
+  border-color: #28a745;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  text-decoration: none;
+}

@@ -1,0 +1,55 @@
+@import './cross.css';
+
+.logo {
+  margin: 60px auto 80px;
+  text-align: center;
+}
+
+.logo-title {
+  flex-shrink: 0;
+  font-family: "Vast Shadow";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 38px;
+  font-size: 48px;
+}
+
+.logo-subhead {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.title-page {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.form {
+  width: 1000px;
+}
+
+.link-action {
+  display: block;
+  color: #B3261E;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration-line: underline;
+  width: 50%;
+}
+
+.w100 {
+  width: 100%;
+}

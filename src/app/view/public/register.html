@@ -5,48 +5,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STE :: Nuevo Registro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Vast+Shadow&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link href="/css/public.css" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <h1>STE</h1>
-    <h5>Servicio de Transporte Especializado</h5>
+  <header class="logo">
+    <h1 class="logo-title">STE</h1>
+    <h5 class="logo-subhead">Servicio de Transporte Especializado</h5>
   </header>
 
-  <section>
-    <h4>Registro de Usuarios</h4>
+  <section class="wrapper">
+    <header class="title-page">
+      <h4>Registro de Usuarios</h4>
+    </header>
     <article>
-      <form id="frmRegister" autocomplete="off">
-        <div>
-          <label for="sltTipoIdentificacionId">Seleccione el Tipo de Documento</label>
-          <select id="sltTipoIdentificacionId" type="text" required autocomplete="off">
-            <option value="10">Cédula de ciudadanía</option>
-          </select>
+      <form class="form" id="frmRegister" autocomplete="off">
+        <div class="form-row">
+          <div class="form-field">
+            <select class="form-control" id="sltTipoIdentificacionId" type="text" required autocomplete="off">
+              <option value="10">Cédula de ciudadanía</option>
+            </select>
+            <label class="form-label" for="sltTipoIdentificacionId">Seleccione el Tipo de Documento</label>
+            <hr class="form-div" />
+          </div>
+          <div class="form-field">
+            <input class="form-control" id="iptIdentificacion" type="number" required autocomplete="off" />
+            <label class="form-label" for="iptIdentificacion">Ingrese su número de Identificación</label>
+            <hr class="form-div" />
+          </div>
         </div>
-        <div>
-          <label for="iptIdentificacion">Ingrese su número de Identificación</label>
-          <input id="iptIdentificacion" type="number" required autocomplete="off" />
+        <div class="form-row">
+          <div class="form-field">
+            <input class="form-control" id="iptNombre" type="text" required autocomplete="off" />
+            <label class="form-label" for="iptNombre">Ingrese Nombres</label>
+            <hr class="form-div" />
+          </div>
+          <div class="form-field">
+            <input class="form-control" id="iptApellido" type="text" required autocomplete="off" />
+            <label class="form-label" for="iptApellido">Ingrese Apellidos</label>
+            <hr class="form-div" />
+          </div>
         </div>
-        <div>
-          <label for="iptNombre">Ingrese Nombres</label>
-          <input id="iptNombre" type="text" required autocomplete="off" />
-        </div>
-        <div>
-          <label for="iptApellido">Ingrese Apellidos</label>
-          <input id="iptApellido" type="text" required autocomplete="off" />
-        </div>
-        <div>
-          <label for="iptUsername">Ingrese Correo</label>
-          <input id="iptUsername" type="text" required autocomplete="off" />
-        </div>
-        <div>
-          <label for="iptPassword">Ingrese Contraseña</label>
-          <input id="iptPassword" type="password" required autocomplete="off" />
+        <div class="form-row">
+          <div class="form-field">
+            <input class="form-control" id="iptUsername" type="text" required autocomplete="off" />
+            <label class="form-label" for="iptUsername">Ingrese Correo</label>
+            <hr class="form-div" />
+          </div>
+          <div class="form-field">
+            <input class="form-control" id="iptPassword" type="password" required autocomplete="off" />
+            <label class="form-label" for="iptPassword">Ingrese Contraseña</label>
+            <hr class="form-div" />
+          </div>
         </div>
 
-        <div>
-          <a href="/">Atrás</a>
-          <button id="btnGuardar">Guardar</button>
+        <div class="form-actions">
+          <a class="form-button form-button--back" href="/">
+            <span class="material-symbols-outlined">keyboard_backspace</span> Atrás
+          </a>
+          <button class="form-button form-button--submit" id="btnGuardar">
+            <span class="material-symbols-outlined">add</span> Guardar
+          </button>
         </div>
       </form>
     </article>

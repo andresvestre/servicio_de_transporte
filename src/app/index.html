@@ -5,37 +5,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STE :: Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Vast+Shadow&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link href="/css/public.css" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <h1>STE</h1>
-    <h5>Servicio de Transporte Especializado</h5>
+  <header class="logo">
+    <h1 class="logo-title">STE</h1>
+    <h5 class="logo-subhead">Servicio de Transporte Especializado</h5>
   </header>
 
-  <section>
-    <header>
+  <section class="wrapper">
+    <header class="title-page">
       <h4>Inicio de Sesión</h4>
     </header>
     <article>
-      <form id="frmLogin" autocomplete="off">
-        <div>
-          <label for="iptUsername">Ingrese Correo</label>
-          <input id="iptUsername" type="text" required autocomplete="off" />
+      <form class="form" id="frmLogin" autocomplete="off">
+        <div class="form-field">
+          <input class="form-control" id="iptUsername" type="text" required autocomplete="off" />
+          <label class="form-label" for="iptUsername">Ingrese Correo</label>
+          <hr class="form-div" />
         </div>
-        <div>
-          <label for="iptPassword">Ingrese Contraseña</label>
-          <input id="iptPassword" type="password" required autocomplete="off" />
+        <div class="form-field">
+          <input class="form-control" id="iptPassword" type="password" required autocomplete="off" />
+          <label class="form-label" for="iptPassword">Ingrese Contraseña</label>
+          <hr class="form-div" />
         </div>
 
-        <div>
-          <a href="/view/public/register.html">Nuevo Usuario</a>
-          <a href="">Recuperar Contraseña</a>
-          <a href="/view/public/driver.html">¿Eres conductor?</a>
+        <div class="form-sub-actions">
+          <a class="link-action" href="/view/public/register.html">Nuevo Usuario</a>
+          <a class="link-action" href="">Recuperar Contraseña</a>
+          <a class="link-action w100" href="/view/public/driver.html">¿Eres conductor?</a>
+        </div>
 
-          <div>
-            <button id="btnIngresar">Ingresar</button>
-          </div>
+        <div class="form-actions">
+          <button class="form-button form-button--submit" id="btnIngresar">
+            <span class="material-symbols-outlined">add</span>
+            Ingresar
+          </button>
+        </div>
       </form>
     </article>
   </section>
