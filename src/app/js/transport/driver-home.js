@@ -14,6 +14,9 @@ async function register () {
 }
 
 async function captureFields () {
+  const user = JSON.parse(sessionStorage.getItem('user'))
+
+  const conductorId = await getConductorId(user.id)
   const tipoVehiculoId = document.querySelector('#sltTipoVehiculoId').value
   const placa = document.querySelector('#iptPlaca').value
   const color = document.querySelector('#iptColor').value
@@ -22,7 +25,7 @@ async function captureFields () {
 
   const { latitud, longitud } = await captureGps()
 
-  return { tipoVehiculoId, placa, color, modelo, asientos, latitud, longitud }
+  return { conductorId, tipoVehiculoId, placa, color, modelo, asientos, latitud, longitud }
 }
 
 async function captureGps () {
@@ -44,4 +47,9 @@ async function updateVehicle (requestMessage) {
   }).then(r => r.json())
 
   return responseMessage
+}
+
+async function getConductorId (userId) {
+  const conductor = await fetch(`/api/v1/security/conductor/${userId}`).then(r => r.json())
+  return conductor.id
 }

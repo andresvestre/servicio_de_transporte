@@ -11,6 +11,5 @@ services:
       - POSTGRES_DB=dbTransport
       - POSTGRES_USER=dbApp
       - POSTGRES_PASSWORD=qwer4321
-
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql

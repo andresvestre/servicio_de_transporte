@@ -7,4 +7,3 @@ export class DriverRequest {
   username: string = ''
   password: string = ''
 }
-

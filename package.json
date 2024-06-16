@@ -1,5 +1,5 @@
 {
-  "name": "servicio-de-transporte",
+  "name": "app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.18.3",
     "inversify": "^6.0.2",
     "inversify-express-utils": "^6.4.6",
     "pg": "^8.12.0",
@@ -28,7 +28,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.5"
+    "tsx": "^4.7.2",
+    "typescript": "^5.4.3"
   }
 }

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STE : Solicita tu Transporte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Vast+Shadow&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link href="/css/private.css" rel="stylesheet" />
+  <style>
+    .dashboard-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .dashboard {
+      align-items: center;
+      color: #fff;
+      display: flex;
+      font-size: 70px;
+      height: 100%;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+    }
+
+    .dashboard-top,
+    .dashboard-bottom {
+      display: flex;
+      width: 100%;
+    }
+
+    .dashboard-top {
+      height: 70%;
+    }
+
+    .dashboard-bottom {
+      height: 30%;
+    }
+
+    .dashboard-top .dashboard {
+      width: 50%;
+    }
+
+    .dashboard-bottom .dashboard {
+      width: 25%;
+    }
+
+    .dashboard-title {
+      color: #fff;
+      font-size: 16px;
+      left: 16px;
+      position: absolute;
+      top: 16px;
+    }
+
+    .dashboard-comision {
+      background-color: #f36d44;
+    }
+
+    .dashboard-solicitante {
+      background-color: #236d4a;
+    }
+
+    .dashboard-conductor {
+      background-color: #006cbb;
+    }
+
+    .dashboard-viaje {
+      background-color: #b3c421;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="panel-left">
+      <header class="logo">
+        <h1 class="logo-title">STE</h1>
+        <h5 class="logo-subhead">Servicio de Transporte Especializado</h5>
+      </header>
+      <div class="wrapper-menu">
+        <div class="menu-profile">Nombre de usuario</div>
+        <div class="menu-title">Servicios disponibles</div>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="" class="menu-link menu-link--active">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Estadísticas
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Usuarios
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Promociones
+            </a>
+          </li>
+        </ul>
+        <div class="menu-title">Configuración</div>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              PQRS
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a class="form-button form-button--back btn-end" href="/">
+        <span class="material-symbols-outlined">keyboard_backspace</span> Salir
+      </a>
+    </div>
+
+    <div class="panel-right">
+      <header class="page-title">Información del sistema</header>
+      <div class="wrapper-page dashboard-wrapper">
+        <div class="dashboard-top">
+          <div class="dashboard dashboard-calificacion"></div>
+          <div class="dashboard dashboard-tipo-vehiculo"></div>
+        </div>
+
+        <div class="dashboard-bottom">
+          <div class="dashboard dashboard-comision">
+            <span class="dashboard-title">Ganancias</span>
+            <span class="dashboard-number"></span>
+          </div>
+          <div class="dashboard dashboard-solicitante">
+            <span class="dashboard-title">Cantidad de Usuarios</span>
+            <span class="dashboard-number"></span>
+          </div>
+          <div class="dashboard dashboard-conductor">
+            <span class="dashboard-title">Cantidad de Conductores</span>
+            <span class="dashboard-number"></span>
+          </div>
+          <div class="dashboard dashboard-viaje">
+            <span class="dashboard-title">Cantidad de Viajes</span>
+            <span class="dashboard-number"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://fastly.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+  <script async src="/js/admin/resume.js"></script>
+</body>
+
+</html>

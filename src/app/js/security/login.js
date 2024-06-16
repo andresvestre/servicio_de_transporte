@@ -16,6 +16,7 @@ async function login () {
   switch (responseMessage.rolId) {
     case 10:
       view = 'admin'
+      break
     case 20:
       view = 'solicitante'
       break
@@ -46,4 +47,3 @@ async function sendMessage (requestMessage) {
 
   return responseMessage
 }
-

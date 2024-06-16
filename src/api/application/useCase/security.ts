@@ -1,5 +1,9 @@
 import { adaptEntityDomainToView } from 'application/adapter/domainEntityToView'
+import { ConductorRequest } from 'application/message/security/conductorRequest'
+import { ConductorResponse } from 'application/message/security/conductorResponse'
 import { DriverRequest } from 'application/message/security/driverRequest'
+import { SolicitanteRequest } from 'application/message/security/solicitanteRequest'
+import { SolicitanteResponse } from 'application/message/security/solicitanteResponse'
 import { UserRequest } from 'application/message/security/userRequest'
 import { UserResponse } from 'application/message/security/userResponse'
 import { IUnitOfWork } from 'domain/db/iUnitOfWork'
@@ -56,11 +60,6 @@ export class Security implements ISecurity {
     return adaptEntityDomainToView<UserResponse>(domainUser, UserResponse)
   }
 
-  private encryptString(text: string): string {
-    return createHash('sha256').update(text).digest('hex')
-  }
-
-
   async driverRegister(driverRequest: DriverRequest): Promise<UserResponse | undefined> {
     const domainUser = new User()
 
@@ -90,9 +89,23 @@ export class Security implements ISecurity {
 
     return adaptEntityDomainToView<UserResponse>(domainUser, UserResponse)
   }
+
+  async getSolicitante(solicitanteRequest: SolicitanteRequest): Promise<SolicitanteResponse | undefined> {
+    const solicitante = await this.unitOfWork.userRepository.getSolicitante(solicitanteRequest.usuarioId)
+    return adaptEntityDomainToView<SolicitanteResponse>(solicitante, SolicitanteResponse)
+  }
+
+  async getConductor(conductorRequest: ConductorRequest): Promise<ConductorResponse | undefined> {
+    const conductor = await this.unitOfWork.userRepository.getConductor(conductorRequest.usuarioId)
+    return adaptEntityDomainToView<ConductorResponse>(conductor, ConductorResponse)
+  }
+
+  private encryptString(text: string): string {
+    return createHash('sha256').update(text).digest('hex')
+  }
+
   private async existsUser(username: string): Promise<boolean> {
     const user = await this.unitOfWork.userRepository.getUserByEmail(username)
     return user !== undefined
   }
 }
-

@@ -1,77 +1,90 @@
 {
-  "folders": [
-    {
-      "path": "."
-    }
-  ],
-  "settings": {
-    "[markdown]": {
-      "editor.formatOnSave": false,
-      "files.trimTrailingWhitespace": false,
-    },
-    "[plaintext]": {
-      "editor.wordWrap": "off"
-    },
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    },
-    "editor.formatOnSave": true,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.wordWrap": "on",
-    "explorer.fileNesting.enabled": true,
-    "explorer.fileNesting.expand": false,
-    "explorer.fileNesting.patterns": {
-      "*.ts": "${capture}.js, ${capture}.test.ts, ${capture}.spec.ts",
-      "Dockerfile": "Dockerfile.*",
-      "jest.config.js": "jest.config.*.js"
-    },
-    "files.exclude": {
-      "**/node_modules/**": false,
-    },
-    "files.trimTrailingWhitespace": true,
-    "git.ignoreLimitWarning": true,
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "js/ts.implicitProjectConfig.experimentalDecorators": true,
-    "standard.enable": true,
-    "standard.run": "onType",
-    "standard.autoFixOnSave": true,
-    "typescript.format.semicolons": "remove",
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "cSpell.language": "en,es",
-    "cSpell.words": [
-      "ecma",
-      "identificacion",
-      "inversify",
-      "nextval",
-      "postgres",
-      "promocion",
-      "vehiculo"
-    ]
-  },
-  "extensions": {
-    "recommendations": [
-      "davidanson.vscode-markdownlint",
-      "dbaeumer.vscode-eslint",
-      "formulahendry.auto-close-tag",
-      "formulahendry.auto-rename-tag",
-      "formulahendry.code-runner",
-      "kareemosama.codesnap-ko",
-      "leizongmin.node-module-intellisense",
-      "ms-vscode-remote.remote-containers",
-      "ms-vsliveshare.vsliveshare",
-      "orta.vscode-jest",
-      "pmneo.tsimporter",
-      "quicktype.quicktype",
-      "ryanluker.vscode-coverage-gutters",
-      "streetsidesoftware.code-spell-checker-spanish",
-      "streetsidesoftware.code-spell-checker",
-      "vscode-icons-team.vscode-icons",
-      "wayou.vscode-todo-highlight",
-      "heaths.vscode-guid",
-      "mechatroner.rainbow-csv",
-      "standard.vscode-standard"
-    ]
-  }
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[markdown]": {
+			"editor.formatOnSave": false,
+			"files.trimTrailingWhitespace": false,
+		},
+		"[plaintext]": {
+			"editor.wordWrap": "off"
+		},
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		},
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.wordWrap": "on",
+		"explorer.fileNesting.enabled": true,
+		"explorer.fileNesting.expand": false,
+		"explorer.fileNesting.patterns": {
+			"*.ts": "${capture}.js, ${capture}.test.ts, ${capture}.spec.ts",
+			"Dockerfile": "Dockerfile.*",
+			"jest.config.js": "jest.config.*.js"
+		},
+		"files.exclude": {
+			"**/node_modules/**": false,
+		},
+		"files.trimTrailingWhitespace": true,
+		"git.ignoreLimitWarning": true,
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+		"javascript.updateImportsOnFileMove.enabled": "always",
+		"js/ts.implicitProjectConfig.experimentalDecorators": true,
+		"standard.autoFixOnSave": true,
+		"standard.enable": true,
+		"standard.run": "onType",
+		"typescript.format.semicolons": "remove",
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"cSpell.language": "en,es",
+		"cSpell.words": [
+			"calificacion",
+			"codigo",
+			"comision",
+			"Credito",
+			"direccion",
+			"Direccion",
+			"echarts",
+			"ecma",
+			"hstore",
+			"identificacion",
+			"Identificacion",
+			"inversify",
+			"nextval",
+			"opsz",
+			"postgres",
+			"pqrs",
+			"promocion",
+			"telefono",
+			"vehiculo",
+			"wght"
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"davidanson.vscode-markdownlint",
+			"dbaeumer.vscode-eslint",
+			"formulahendry.auto-close-tag",
+			"formulahendry.auto-rename-tag",
+			"formulahendry.code-runner",
+			"kareemosama.codesnap-ko",
+			"leizongmin.node-module-intellisense",
+			"ms-vscode-remote.remote-containers",
+			"ms-vsliveshare.vsliveshare",
+			"orta.vscode-jest",
+			"pmneo.tsimporter",
+			"quicktype.quicktype",
+			"ryanluker.vscode-coverage-gutters",
+			"streetsidesoftware.code-spell-checker-spanish",
+			"streetsidesoftware.code-spell-checker",
+			"vscode-icons-team.vscode-icons",
+			"wayou.vscode-todo-highlight",
+			"heaths.vscode-guid",
+			"mechatroner.rainbow-csv",
+			"standard.vscode-standard"
+		]
+	}
 }

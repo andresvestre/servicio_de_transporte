@@ -1,31 +1,32 @@
 import { Conductor } from 'domain/entities/conductor'
-import { Solicitante } from 'domain/entities/solicitante'
-import { User } from 'domain/entities/user'
+import type { User } from 'domain/entities/user'
 import type { IUserRepository } from 'domain/repository/iUserRepository'
 import type { IContextTransport } from 'infrastructure/db/iContextTransport'
+import { Solicitante } from '../../domain/entities/solicitante'
 
 export class UserRepository implements IUserRepository {
   constructor(private readonly context: IContextTransport) { }
 
   private readonly COLUMNS_ENTITY = `
-   id
-   ,tipo_identificacion_id
-   ,rol_id
-   ,identificacion
-   ,nombre
-   ,apellido
-   ,correo
-   ,password
- `
+    id
+    ,tipo_identificacion_id
+    ,rol_id
+    ,identificacion
+    ,nombre
+    ,apellido
+    ,correo
+    ,password
+  `
+
   async login(username: string, password: string): Promise<User | undefined> {
     return await this.context.executeQueryScalar<User>(`
-     SELECT
-       ${this.COLUMNS_ENTITY}
-     FROM seguridad.usuario
-     WHERE
-       correo = :username
-       AND password = :password
-   `, {
+      SELECT
+        ${this.COLUMNS_ENTITY}
+      FROM seguridad.usuario
+      WHERE
+        correo = :username
+        AND password = :password
+    `, {
       username,
       password
     })
@@ -60,13 +61,25 @@ export class UserRepository implements IUserRepository {
     })
   }
 
-
   async getUserSequence(): Promise<number | undefined> {
-    const sequence = await this.context.executeQueryScalar<{ id: number }>(`
+    const sequence = await this.context.executeQueryScalar<{ id: string }>(`
       SELECT nextval('sq_usuario') AS id
     `)
 
-    return sequence?.id
+    return sequence?.id != undefined ? parseInt(sequence?.id) : undefined
+  }
+
+  async getSolicitante(usuarioId: number): Promise<Solicitante | undefined> {
+    return await this.context.executeQueryScalar<Solicitante>(`
+      SELECT
+         id
+        ,usuario_id
+        ,latitud_defecto
+        ,longitud_defecto
+      FROM transporte.solicitante
+      WHERE
+        usuario_id = :usuario_id
+    `, { usuarioId })
   }
 
   async saveSolicitante(solicitante: Solicitante): Promise<Solicitante | undefined> {
@@ -87,6 +100,18 @@ export class UserRepository implements IUserRepository {
     return solicitante
   }
 
+  async getConductor(usuarioId: number): Promise<Conductor | undefined> {
+    return await this.context.executeQueryScalar<Conductor>(`
+      SELECT
+         id
+        ,usuario_id
+        ,numero_licencia
+      FROM transporte.conductor
+      WHERE
+        usuario_id = :usuario_id
+    `, { usuarioId })
+  }
+
   async saveConductor(conductor: Conductor): Promise<Conductor | undefined> {
     await this.context.executeQuery<Solicitante>(`
       INSERT INTO transporte.conductor (
@@ -105,9 +130,9 @@ export class UserRepository implements IUserRepository {
 
   async getUsers(): Promise<User[] | undefined> {
     return await this.context.executeQuery<User>(`
-     SELECT
-       ${this.COLUMNS_ENTITY}
-     FROM seguridad.usuario
-   `)
+      SELECT
+        ${this.COLUMNS_ENTITY}
+      FROM seguridad.usuario
+    `)
   }
 }

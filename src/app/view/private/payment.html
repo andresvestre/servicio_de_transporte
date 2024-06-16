@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STE : Solicita tu Transporte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Vast+Shadow&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link href="/css/private.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="panel-left">
+      <header class="logo">
+        <h1 class="logo-title">STE</h1>
+        <h5 class="logo-subhead">Servicio de Transporte Especializado</h5>
+      </header>
+      <div class="wrapper-menu">
+        <div class="menu-profile">Nombre de usuario</div>
+        <div class="menu-title">Servicios disponibles</div>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="" class="menu-link menu-link--active">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Buscar
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Ir a Casa
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Ir al Trabajo
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Otros
+            </a>
+          </li>
+        </ul>
+        <div class="menu-title">Configuración</div>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              Pagos
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="" class="menu-link">
+              <span class="material-symbols-outlined">fiber_manual_record</span>
+              PQRS
+            </a>
+          </li>
+        </ul>
+      </div>
+      <a class="form-button form-button--back btn-end" href="/">
+        <span class="material-symbols-outlined">keyboard_backspace</span> Salir
+      </a>
+    </div>
+
+    <div class="panel-right">
+      <header class="page-title">Pagos</header>
+      <div class="wrapper-page">
+        <div class="payment-card">
+          <img class="payment-card-img" src="/img/tc.png">
+        </div>
+
+        <form class="form w80" id="frmPayment">
+          <div class="form-row">
+            <div class="form-field">
+              <input class="form-control" id="iptNumeroTarjeta" type="text" required autocomplete="off" />
+              <label class="form-label" for="iptNumeroTarjeta">Ingrese el número de tarjeta</label>
+            </div>
+            <div class="form-field">
+              <input class="form-control" id="iptNombreTarjeta" type="text" required autocomplete="off" />
+              <label class="form-label" for="iptNombreTarjeta">Ingrese nombre del titular</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <input class="form-control" id="iptFechaVencimiento" type="text" required autocomplete="off"
+                maxlength="5" />
+              <label class="form-label" for="iptFechaVencimiento">Ingrese fecha de vencimiento</label>
+            </div>
+            <div class="form-field">
+              <input class="form-control" id="iptCvv" type="number" required autocomplete="off" />
+              <label class="form-label" for="iptCvv">Ingrese el cvv</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field form-field--disabled">
+              <input class="form-control" id="iptValorServicio" disabled type="number" required autocomplete="off" />
+              <label class="form-label" for="iptValorServicio">Valor servicio</label>
+            </div>
+            <div class="form-field">
+              <input class="form-control" id="iptPromocion" type="number" autocomplete="off" />
+              <label class="form-label" for="iptPromocion">Código de Promoción</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <select class="form-control" id="sltCalificacion" type="text" required autocomplete="off">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <label class="form-label" for="sltCalificacion">Calificación</label>
+            </div>
+            <div class="form-field">
+              <input class="form-control" id="iptObservaciones" type="text" required autocomplete="off" />
+              <label class="form-label" for="iptObservaciones">Observaciones</label>
+            </div>
+          </div>
+
+          <div class="form-actions mt-12">
+            <a href="/view/private/select-driver.html" class="form-button form-button--red">
+              <span class="material-symbols-outlined">close</span>
+              Cancelar
+            </a>
+            <button class="form-button form-button--submit" id="btnGuardar">
+              <span class="material-symbols-outlined">paid</span>
+              Pagar
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/payment/payment.js"></script>
+</body>
+
+</html>

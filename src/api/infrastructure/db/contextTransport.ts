@@ -32,9 +32,7 @@ export class ContextTransport implements IContextTransport {
     const newParameters = adaptDomainToDataBase(parameters)
 
     await this.connect()
-    const result = await this.db.query(query, {
-      replacements: newParameters
-    })
+    const result = await this.db.query(query, { replacements: newParameters })
     if (((result?.length) === 2)) {
       return adaptArrayDataBaseToDomain(result[0]) as TEntity[]
     }
@@ -42,6 +40,7 @@ export class ContextTransport implements IContextTransport {
 
   async executeQueryScalar<TEntity>(query: string, parameters?: ParametersDB | undefined): Promise<TEntity | undefined> {
     const result = await this.executeQuery<TEntity>(query, parameters)
+
     if (result?.length !== undefined && result?.length > 0) {
       return result[0]
     }
